@@ -1,0 +1,44 @@
+{% extends '@FlowFusionBlog/admin_layout.html.twig' %}
+
+{% block ff_admin_sidebar %}
+    {{ include('@FlowFusionBlog/Admin/sidebar.html.twig') }}
+{% endblock %}
+
+{% block ff_admin_content %}
+    <div class="right">
+        <a href="{{ path('flow_fusion_blog_admin_category_new') }}">New</a>
+    </div>
+    <h1>Post overview <small><code>{{ paginatedPosts.getTotalItemCount }}</code></small></h1>
+    <hr />
+    <table>
+        <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(paginatedPosts, '#', 'p.id') }}</th>
+                <th>{{ knp_pagination_sortable(paginatedPosts, 'Status', 'p.status') }}</th>
+                <th>{{ knp_pagination_sortable(paginatedPosts, 'Title', 'p.title') }}</th>
+                <th>{{ knp_pagination_sortable(paginatedPosts, 'Created at', 'p.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(paginatedPosts, 'by', 'u.username') }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in paginatedPosts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.status|post_status }}</td>
+                    <td><strong>{{ post.title }}</strong></td>
+                    <td>{{ post.createdAt|date('d.m.Y - H:i') }}</td>
+                    <td>{{ post.createdBy.username }}</td>
+                    <td>
+                        <a href="#" target="_blank">show</a>
+                        <a href="{{ path('flow_fusion_blog_admin_post_edit', {'id': post.id}) }}">edit</a>
+                        <a href="{{ path('flow_fusion_blog_admin_post_delete', {'id': post.id}) }}">trash</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination">
+        {{ knp_pagination_render(paginatedPosts) }}
+    </div>
+{% endblock %}

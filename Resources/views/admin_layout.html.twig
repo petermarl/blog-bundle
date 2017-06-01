@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{ asset('bundles/flowfusionblog/css/style.css') }}" />
+    <title>Admin - Blog</title>
+</head>
+<body>
+
+<div class="ff-blog-admin">
+    <div class="header">
+        <div class="user">
+            {% if app.user %}
+                <strong>{{ app.user.username }}</strong> |
+                <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">Login</a>
+            {% endif %}
+            | <a href="{{ path('flow_fusion_blog_index') }}" target="_blank">Blog</a>
+        </div>
+        <h3>Blog-Administration</h3>
+    </div>
+    <div>
+        <div class="sidebar">
+            {% block ff_admin_sidebar %}{% endblock %}
+        </div>
+        <div class="content">
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+            {% block ff_admin_content %}{% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

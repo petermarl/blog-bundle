@@ -1,0 +1,34 @@
+FlowFusion\BlogBundle\Entity\Post:
+    type: entity
+    table: ff_blog_post
+    repositoryClass: FlowFusion\BlogBundle\Repository\PostRepository
+    fields:
+        title:
+            type: text
+            nullable: false
+        content:
+            type: text
+            nullable: false
+        status:
+            type: integer
+            nullable: false
+        comments_enabled:
+            type: boolean
+            nullable: true
+    oneToMany:
+        comments:
+            targetEntity: FlowFusion\BlogBundle\Entity\Post
+            mappedBy: comments
+    manyToMany:
+        categories:
+            targetEntity: FlowFusion\BlogBundle\Entity\Category
+            inversedBy: categories
+            joinTable:
+                name: category2post
+                joinColumns:
+                    fk_post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    fk_category_id:
+                        referencedColumnName: id
+    lifecycleCallbacks: {  }

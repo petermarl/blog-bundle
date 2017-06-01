@@ -1,0 +1,11 @@
+services:
+    flowfusion.blog:
+        class: FlowFusion\BlogBundle\Service\BlogService
+        arguments: ["@service_container"]
+    flowfusion.blog.admin:
+        class: FlowFusion\BlogBundle\Service\AdminService
+        arguments: ["@service_container"]
+    flowfusion.blog.twig_extension:
+        class: FlowFusion\BlogBundle\Twig\FFBlogExtension
+        tags:
+             - { name: 'twig.extension' }

@@ -1,0 +1,11 @@
+<?php
+
+namespace FlowFusion\BlogBundle\Entity;
+
+/**
+ * Post
+ */
+class Post extends BaseEntity
+{
+
+}

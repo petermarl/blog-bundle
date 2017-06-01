@@ -1,0 +1,41 @@
+{
+  "name": "flowfusion/blog-bundle",
+  "description": "Yet another blog bundle for symfony.",
+  "type": "symfony-bundle",
+  "version": "0.1",
+  "authors": [
+    {
+      "name": "A. Dachauer",
+      "email": "adachauer@webworks-nuernberg.de"
+    }
+  ],
+  "keywords": [
+    "flowfusion"
+  ],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "php": ">=7.0",
+    "doctrine/orm": "^2.5",
+    "symfony/symfony": ">=3.0",
+    "knplabs/knp-menu-bundle": "^2.0",
+    "knplabs/knp-paginator-bundle": "2.*",
+    "flowfusion/user-bundle": ">=1.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "FlowFusion\\BlogBundle": ""
+    }
+  },
+  "target-dir": "flowfusion/blog-bundle",
+  "repositories": [
+    {
+    }
+  ],
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+flow_fusion_blog_index:
+    path:     /
+    defaults: { _controller: FlowFusionBlogBundle:View:index }
+
+flow_fusion_blog_author_index:
+    path:     /author/{username}
+    defaults: { _controller: FlowFusionBlogBundle:View:authorIndex }

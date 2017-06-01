@@ -1,0 +1,32 @@
+flow_fusion_blog_admin_post_index:
+    path:     /
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Post:index }
+
+flow_fusion_blog_admin_post_new:
+    path:     /post/new
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Post:new }
+
+flow_fusion_blog_admin_post_edit:
+    path:     /post/edit/{id}
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Post:edit }
+
+flow_fusion_blog_admin_post_delete:
+    path:     /post/delete/{id}
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Post:delete }
+
+
+flow_fusion_blog_admin_category_index:
+    path:     /category
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Category:index }
+
+flow_fusion_blog_admin_category_new:
+    path:     /category/new
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Category:new }
+
+flow_fusion_blog_admin_category_edit:
+    path:     /category/edit/{id}
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Category:edit }
+
+flow_fusion_blog_admin_category_delete:
+    path:     /category/delete/{id}
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Category:delete }

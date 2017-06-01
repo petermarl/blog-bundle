@@ -1,0 +1,32 @@
+FlowFusion\BlogBundle\Entity\Category:
+    type: entity
+    table: ff_blog_category
+    repositoryClass: FlowFusion\BlogBundle\Repository\categoryRepository
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+        status:
+            type: integer
+            nullable: false
+    manyToOne:
+        parent:
+            targetEntity: Category
+            cascade: {  }
+            inversedBy: childs
+            joinColumns:
+                fk_parent_id:
+                    referenceColumnName: id
+                    onDelete: CASCADE
+            orphanRemoval: false
+    oneToMany:
+        childs:
+            targetEntity: Category
+            mappedBy: parent
+    manyToMany:
+        users:
+            targetEntity: FlowFusion\BlogBundle\Entity\Post
+            mappedBy: categories
+    lifecycleCallbacks: {  }

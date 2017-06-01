@@ -1,0 +1,51 @@
+.ff-blog-admin .header {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.ff-blog-admin .header h3 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.ff-blog-admin .user {
+    float: right;
+}
+
+.ff-blog-admin .sidebar {
+    width: 300px;
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+    margin-right: 20px;
+    float: left;
+}
+
+.ff-blog-admin .content {
+    float: left;
+    min-width: 900px;
+    width: 70%;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+td, th {
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 5px;
+}
+
+th {
+    background-color: #333;
+}
+
+th, th a {
+    color: #fff;
+}

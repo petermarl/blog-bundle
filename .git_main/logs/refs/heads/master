@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 a7586340339a5eaece89f86309767ed206cdec86 AntonDachauer <adachauer@webworks-nuernberg.de> 1496224085 +0200	commit (initial): init
+a7586340339a5eaece89f86309767ed206cdec86 323956cd29f596ab76c27a0e3bb79e87ec9cdf20 AntonDachauer <adachauer@webworks-nuernberg.de> 1496224502 +0200	commit: commit test
+323956cd29f596ab76c27a0e3bb79e87ec9cdf20 f125c77e396f5b85d097534b8e874e3504ef5a41 AntonDachauer <adachauer@webworks-nuernberg.de> 1496228254 +0200	commit: database schema
+f125c77e396f5b85d097534b8e874e3504ef5a41 64d3b271f6a7076b97a28bb02dc97b37e84c4891 AntonDachauer <adachauer@webworks-nuernberg.de> 1496233372 +0200	commit: composer.json fix
+64d3b271f6a7076b97a28bb02dc97b37e84c4891 b7b6bee3ebee62396b3e80595ebb61c119668796 AntonDachauer <adachauer@webworks-nuernberg.de> 1496233862 +0200	commit: composer.json fix
+b7b6bee3ebee62396b3e80595ebb61c119668796 bee442e76aae8321d44dfdc38b235cf3cb4830c8 AntonDachauer <adachauer@webworks-nuernberg.de> 1496234085 +0200	commit: composer.json fix
+bee442e76aae8321d44dfdc38b235cf3cb4830c8 e1471f2d5d72f11b701816131f8af8ec9440e946 AntonDachauer <adachauer@webworks-nuernberg.de> 1496236222 +0200	commit: Composer.json updated
+e1471f2d5d72f11b701816131f8af8ec9440e946 1968ae693d0c9f749785d9359c33fbb47ef1b95b AntonDachauer <adachauer@webworks-nuernberg.de> 1496236577 +0200	commit: Composer.json fixed
+1968ae693d0c9f749785d9359c33fbb47ef1b95b efbe43ee735019984368c95f0ff278d1941df59f AntonDachauer <adachauer@webworks-nuernberg.de> 1496244871 +0200	commit: backend basics for posts - create posts, edit posts and delete posts
+efbe43ee735019984368c95f0ff278d1941df59f c639f4101e05928f26e4e0180717cace3a2b349b AntonDachauer <adachauer@webworks-nuernberg.de> 1496313332 +0200	commit: backend basics for posts - create categories, edit categories and delete categories, select categories on post edit/create
+c639f4101e05928f26e4e0180717cace3a2b349b 144f5c6495942adc7d8e2a4ac7b81d689b44da14 AntonDachauer <adachauer@webworks-nuernberg.de> 1496314007 +0200	commit: BlogBundle Composer Update

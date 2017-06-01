@@ -1,0 +1,11 @@
+<div class="ff-blog-loop-index">
+    {% for post in paginatedPosts %}
+        {{ include('@FlowFusionBlog/View/entry.html.twig') }}
+    {% else %}
+        <div class=""><i>No posts found.</i></div>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    {{ knp_pagination_render(paginatedPosts) }}
+</div>

@@ -1,0 +1,44 @@
+FlowFusion\BlogBundle\Entity\Comment:
+    type: entity
+    table: ff_blog_comment
+    repositoryClass: FlowFusion\BlogBundle\Repository\CommentRepository
+    fields:
+        authorName:
+            type: string
+            length: 255
+            column: author_name
+        authorEmail:
+            type: string
+            length: 255
+            column: author_email
+        authorUrl:
+            type: string
+            length: 255
+            column: author_url
+        approved:
+            type: boolean
+    manyToOne:
+        post:
+            targetEntity: FlowFusion\BlogBundle\Entity\Post
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                fk_post_id:
+                    referenceColumnName: id
+                    onDelete: CASCADE
+            orphanRemoval: false
+        answerTo:
+            targetEntity: Comment
+            cascade: {  }
+            inversedBy: answers
+            joinColumns:
+                fk_parent_id:
+                    referenceColumnName: id
+                    onDelete: CASCADE
+            orphanRemoval: false
+    oneToMany:
+        answers:
+            targetEntity: Comment
+            mappedBy: answerTo
+    lifecycleCallbacks: {  }

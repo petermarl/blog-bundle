@@ -1,0 +1,12 @@
+<article class="post post-{{ post.id }}">
+    <h2>{{ post.title }}</h2>
+    <div class="meta">
+        <small>
+            {{ post.createdAt|date('d.m.Y') }} &middot;
+            {% if post.createdBy %}
+                <a href="{{ path('flow_fusion_blog_author_index', {'username': post.createdBy.username}) }}">{{ post.createdBy.username }}</a>
+            {% endif %}
+        </small>
+    </div>
+    <div class="excerpt">{{ post.content|raw }}</div>
+</article>

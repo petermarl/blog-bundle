@@ -1,0 +1,11 @@
+{% extends '@FlowFusionBlog/admin_layout.html.twig' %}
+
+{% block ff_admin_sidebar %}
+    {{ include('@FlowFusionBlog/Admin/sidebar.html.twig') }}
+{% endblock %}
+
+{% block ff_admin_content %}
+    <h1>Edit post <small><code>{{ post.title }}</code></small></h1>
+    <hr />
+    {{ include('@FlowFusionBlog/Admin/Post/form.html.twig') }}
+{% endblock %}
