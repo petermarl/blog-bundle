@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{ asset('bundles/flowfusionblog/css/frontend.css') }}" />
+    <title>{% block page_title %}{% endblock %}</title>
 </head>
 <body>
 
@@ -15,9 +17,16 @@
     {% endfor %}
 {% endif %}
 
-<div>
+<div class="container">
+    <div class="header">
+        <h1>{{ block('page_title') }}</h1>
+        <div class="menu">
+            {{ knp_menu_render('FlowFusionBlogBundle:Builder:categoriesMenu') }}
+        </div>
+    </div>
     {% block ff_blog_content %}
     {% endblock ff_blog_content %}
 </div>
+
 </body>
 </html>

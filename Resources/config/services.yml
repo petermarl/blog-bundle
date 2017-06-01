@@ -5,7 +5,11 @@ services:
     flowfusion.blog.admin:
         class: FlowFusion\BlogBundle\Service\AdminService
         arguments: ["@service_container"]
+    flowfusion.slugify:
+        class: FlowFusion\BlogBundle\Service\SlugifyService
+        arguments: ["%locale%"]
     flowfusion.blog.twig_extension:
         class: FlowFusion\BlogBundle\Twig\FFBlogExtension
+        arguments: ["@service_container"]
         tags:
              - { name: 'twig.extension' }

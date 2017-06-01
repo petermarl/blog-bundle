@@ -6,6 +6,7 @@ use FlowFusion\BlogBundle\Entity\Category;
 use FlowFusion\BlogBundle\Service\BlogService;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -39,6 +40,10 @@ class CategoryType extends AbstractType
             ->add('parent', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'title',
+            ])
+            ->add('showInMenu', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Show category in menu',
             ]);
     }
     

@@ -2,6 +2,7 @@
 
 namespace FlowFusion\BlogBundle\Service;
 
+use FlowFusion\BlogBundle\Entity\Category;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -74,16 +75,40 @@ class BlogService
         return $query;
     }
 
+    /**
+     * @param $username
+     * @return bool
+     */
     public function userExists($username)
     {
         $query = $this->getContainer()->get('doctrine.orm.default_entity_manager')
             ->getRepository('FlowFusionUserBundle:User')
             ->createQueryBuilder('u')
             ->where('u.username = :username')
+            ->setParameter('username', $username)
             ->getQuery();
 
         $result = $query->getOneOrNullResult();
 
         return is_object($result);
+    }
+
+    /**
+     * @return array
+     */
+    public function getMenuCategories()
+    {
+        $categories = $this->getContainer()->get('doctrine.orm.default_entity_manager')
+            ->getRepository(Category::class)
+            ->createQueryBuilder('c')
+            ->where('c.status = :status')
+            ->andWhere('c.show_in_menu = :sim')
+            ->setParameter('sim', true)
+            ->setParameter('status', self::POST_STATUS_PUBLISHED)
+            ->orderBy('c.title', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $categories;
     }
 }

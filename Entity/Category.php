@@ -209,4 +209,33 @@ class Category extends BaseEntity
     {
         return $this->users;
     }
+    /**
+     * @var boolean
+     */
+    private $show_in_menu;
+
+
+    /**
+     * Set showInMenu
+     *
+     * @param boolean $showInMenu
+     *
+     * @return Category
+     */
+    public function setShowInMenu($showInMenu)
+    {
+        $this->show_in_menu = $showInMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get showInMenu
+     *
+     * @return boolean
+     */
+    public function getShowInMenu()
+    {
+        return $this->show_in_menu;
+    }
 }

@@ -48,4 +48,5 @@ class ViewController extends Controller
         ];
         return $this->render('FlowFusionBlogBundle:View:index.html.twig', $params);
     }
+
 }

@@ -23,7 +23,7 @@ class FlowFusionBlogExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
         $container->setParameter('flow_fusion_blog.loop.page_limit', isset($config['loop']['page_limit']) ? $config['loop']['page_limit'] : 20);

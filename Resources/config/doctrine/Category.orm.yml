@@ -11,6 +11,9 @@ FlowFusion\BlogBundle\Entity\Category:
         status:
             type: integer
             nullable: false
+        show_in_menu:
+            type: boolean
+            nullable: true
     manyToOne:
         parent:
             targetEntity: Category

@@ -77,7 +77,7 @@ class CategoryController extends Controller
         }
 
         $params = [
-            'post' => $category,
+            'category' => $category,
             'form' => $form->createView(),
         ];
         return $this->render('@FlowFusionBlog/Admin/Category/edit.html.twig', $params);

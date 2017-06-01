@@ -2,7 +2,7 @@
   "name": "flowfusion/blog-bundle",
   "description": "Yet another blog bundle for symfony.",
   "type": "symfony-bundle",
-  "version": "0.1",
+  "version": "0.1.1",
   "authors": [
     {
       "name": "A. Dachauer",
@@ -21,6 +21,7 @@
     "symfony/symfony": ">=3.0",
     "knplabs/knp-menu-bundle": "^2.0",
     "knplabs/knp-paginator-bundle": "2.*",
+    "cocur/slugify": "^2.5",
     "flowfusion/user-bundle": ">=1.0"
   },
   "autoload": {
