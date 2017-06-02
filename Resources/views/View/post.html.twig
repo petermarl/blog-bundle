@@ -1,0 +1,17 @@
+{% extends "@FlowFusionBlog/layout.html.twig" %}
+
+{% block page_title %}{{ post.title }}{% endblock %}
+
+{% block ff_blog_content %}
+    <div class="post post-{{ post.id }}">
+        <h1>{{ post.title }}</h1>
+        <div class="meta">
+            <small>
+                {{ include('@FlowFusionBlog/View/post_meta.html.twig') }}
+            </small>
+        </div>
+        <div class="post-content">
+            {{ post.content|raw }}
+        </div>
+    </div>
+{% endblock ff_blog_content %}

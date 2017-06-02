@@ -22,17 +22,17 @@
             </tr>
         </thead>
         <tbody>
-            {% for post in paginatedPosts %}
+            {% for category in paginatedPosts %}
                 <tr>
-                    <td>{{ post.id }}</td>
-                    <td>{{ post.status|post_status }}</td>
-                    <td><strong>{{ post.title }}</strong></td>
-                    <td>{{ post.createdAt|date('d.m.Y - H:i') }}</td>
-                    <td>{{ post.createdBy.username }}</td>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.status|post_status }}</td>
+                    <td><strong>{{ category.title }}</strong></td>
+                    <td>{{ category.createdAt|date('d.m.Y - H:i') }}</td>
+                    <td>{{ category.createdBy.username }}</td>
                     <td>
-                        <a href="#" target="_blank">show</a>
-                        <a href="{{ path('flow_fusion_blog_admin_category_edit', {'id': post.id}) }}">edit</a>
-                        <a href="{{ path('flow_fusion_blog_admin_category_delete', {'id': post.id}) }}">trash</a>
+                        <a href="{{ path('flow_fusion_blog_category_index', {'slug': category.title|slugify, 'id': category.id}) }}" target="_blank">show</a>
+                        <a href="{{ path('flow_fusion_blog_admin_category_edit', {'id': category.id}) }}">edit</a>
+                        <a href="{{ path('flow_fusion_blog_admin_category_delete', {'id': category.id}) }}">trash</a>
                     </td>
                 </tr>
             {% endfor %}

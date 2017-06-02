@@ -1,5 +1,15 @@
 {% extends "@FlowFusionBlog/layout.html.twig" %}
 
+{% block page_title %}Blog home{% endblock %}
+
 {% block ff_blog_content %}
+    {% if author is defined %}
+        {{ include('@FlowFusionBlog/View/author_desc.html.twig') }}
+        <hr />
+    {% endif %}
+    {% if category is defined %}
+        {{ include('@FlowFusionBlog/View/category_desc.html.twig') }}
+        <hr />
+    {% endif %}
     {{ include('@FlowFusionBlog/View/loop.html.twig') }}
 {% endblock ff_blog_content %}

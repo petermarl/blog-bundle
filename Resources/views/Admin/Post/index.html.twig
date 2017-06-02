@@ -30,7 +30,8 @@
                     <td>{{ post.createdAt|date('d.m.Y - H:i') }}</td>
                     <td>{{ post.createdBy.username }}</td>
                     <td>
-                        <a href="#" target="_blank">show</a>
+                        {% set d = post.createdAt %}
+                        <a href="{{ path('flow_fusion_blog_post_show', {'y': d|date('Y'), 'm': d|date('m'), 'd': d|date('d'), 'slug': post.title|slugify, 'id': post.id}) }}" target="_blank">show</a>
                         <a href="{{ path('flow_fusion_blog_admin_post_edit', {'id': post.id}) }}">edit</a>
                         <a href="{{ path('flow_fusion_blog_admin_post_delete', {'id': post.id}) }}">trash</a>
                     </td>

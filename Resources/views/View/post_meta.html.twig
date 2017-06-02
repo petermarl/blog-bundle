@@ -1,0 +1,10 @@
+{{ post.createdAt|date('d.m.Y') }} &middot;
+{% if post.createdBy %}
+    <a href="{{ path('flow_fusion_blog_author_index', {'username': post.createdBy.username}) }}">{{ post.createdBy.username }}</a>
+{% endif %}
+{% if post.categories|length > 0 %}
+    &middot; categorized in
+    {% for category in post.categories %}
+        <a href="{{ path('flow_fusion_blog_category_index', {'slug': category.title|slugify, 'id': category.id}) }}">{{ category.title }}</a>{% if loop.index < post.categories|length %},{% endif %}
+    {% endfor %}
+{% endif %}

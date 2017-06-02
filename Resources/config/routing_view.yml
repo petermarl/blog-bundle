@@ -9,3 +9,7 @@ flow_fusion_blog_author_index:
 flow_fusion_blog_category_index:
     path:     /category/{slug}/{id}
     defaults: { _controller: FlowFusionBlogBundle:View:categoryIndex }
+
+flow_fusion_blog_post_show:
+    path:     /{y}/{m}/{d}/{slug}/{id}
+    defaults: { _controller: FlowFusionBlogBundle:View:post }

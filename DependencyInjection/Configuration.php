@@ -22,11 +22,18 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->arrayNode('loop')
-            ->children()
-            ->integerNode('page_limit')
-            ->end()
-            ->end()
+                ->arrayNode('loop')
+                ->children()
+                    ->integerNode('page_limit')
+                    ->defaultValue(10)
+                    ->end()
+                    ->integerNode('excerpt_length')
+                    ->defaultValue(40)
+                    ->end()
+                    ->booleanNode('read_more_link')
+                    ->defaultValue(true)
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

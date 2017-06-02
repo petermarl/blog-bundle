@@ -3,6 +3,8 @@
 namespace FlowFusion\BlogBundle\Service;
 
 use FlowFusion\BlogBundle\Entity\Category;
+use FlowFusion\BlogBundle\Entity\Post;
+use FlowFusion\UserBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -76,10 +78,43 @@ class BlogService
     }
 
     /**
-     * @param $username
-     * @return bool
+     * @param $id
+     * @return \Doctrine\ORM\Query
      */
-    public function userExists($username)
+    public function categoryLoopQuery($id)
+    {
+        $query = $this->getContainer()->get('doctrine.orm.default_entity_manager')
+            ->getRepository('FlowFusionBlogBundle:Post')
+            ->createQueryBuilder('p')
+            ->leftJoin('p.categories', 'c')
+            ->where('p.status = :status')
+            ->andWhere('c.id = :cid')
+            ->setParameter('status', self::POST_STATUS_PUBLISHED)
+            ->setParameter('cid', $id)
+            ->getQuery();
+
+        return $query;
+    }
+
+    /**
+     * @param $id
+     * @return Category
+     */
+    public function getCategoryById($id)
+    {
+        /** @var Category $category */
+        $category = $this->getContainer()->get('doctrine.orm.default_entity_manager')
+            ->getRepository('FlowFusionBlogBundle:Category')
+            ->find($id);
+
+        return $category;
+    }
+
+    /**
+     * @param $username
+     * @return User
+     */
+    public function getUserByUsername($username)
     {
         $query = $this->getContainer()->get('doctrine.orm.default_entity_manager')
             ->getRepository('FlowFusionUserBundle:User')
@@ -88,9 +123,10 @@ class BlogService
             ->setParameter('username', $username)
             ->getQuery();
 
+        /** @var User $result */
         $result = $query->getOneOrNullResult();
 
-        return is_object($result);
+        return $result;
     }
 
     /**
@@ -110,5 +146,18 @@ class BlogService
             ->getResult();
 
         return $categories;
+    }
+
+    /**
+     * @param $id
+     * @return Post
+     */
+    public function getPostById($id)
+    {
+        $post = $this->getContainer()->get('doctrine.orm.default_entity_manager')
+            ->getRepository(Post::class)
+            ->find($id);
+
+        return $post;
     }
 }
