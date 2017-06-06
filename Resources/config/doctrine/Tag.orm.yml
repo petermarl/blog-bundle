@@ -1,0 +1,18 @@
+FlowFusion\BlogBundle\Entity\Tag:
+    type: entity
+    table: ff_blog_tag
+    repositoryClass: FlowFusion\BlogBundle\Repository\tagRepository
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+        status:
+            type: integer
+            nullable: false
+    manyToMany:
+        posts:
+            targetEntity: FlowFusion\BlogBundle\Entity\Post
+            mappedBy: tags
+    lifecycleCallbacks: {  }

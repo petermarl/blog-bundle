@@ -2,6 +2,7 @@
 
 namespace FlowFusion\BlogBundle\Form;
 
+use FlowFusion\BlogBundle\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,7 +23,7 @@ class CommentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FlowFusion\BlogBundle\Entity\Comment'
+            'data_class' => Comment::class
         ));
     }
 

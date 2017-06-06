@@ -10,6 +10,10 @@ flow_fusion_blog_category_index:
     path:     /category/{slug}/{id}
     defaults: { _controller: FlowFusionBlogBundle:View:categoryIndex }
 
+flow_fusion_blog_tag_index:
+    path:     /tag/{slug}/{id}
+    defaults: { _controller: FlowFusionBlogBundle:View:tagIndex }
+
 flow_fusion_blog_post_show:
     path:     /{y}/{m}/{d}/{slug}/{id}
     defaults: { _controller: FlowFusionBlogBundle:View:post }

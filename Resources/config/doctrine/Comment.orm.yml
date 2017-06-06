@@ -22,7 +22,7 @@ FlowFusion\BlogBundle\Entity\Comment:
             targetEntity: FlowFusion\BlogBundle\Entity\Post
             cascade: {  }
             mappedBy: null
-            inversedBy: null
+            inversedBy: comments
             joinColumns:
                 fk_post_id:
                     referenceColumnName: id

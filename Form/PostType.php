@@ -2,7 +2,10 @@
 
 namespace FlowFusion\BlogBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
 use FlowFusion\BlogBundle\Entity\Category;
+use FlowFusion\BlogBundle\Entity\Post;
+use FlowFusion\BlogBundle\Entity\Tag;
 use FlowFusion\BlogBundle\Service\BlogService;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -52,6 +55,18 @@ class PostType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'choice_label' => 'title',
+            ])
+            ->add('tags', EntityType::class, [
+                'class' => Tag::class,
+                'multiple' => true,
+                'expanded' => true,
+                'choice_label' => 'title',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('t')
+                        ->where('t.status = :status')
+                        ->setParameter('status', BlogService::POST_STATUS_PUBLISHED)
+                        ->orderBy('t.title', 'ASC');
+                },
             ]);
     }
 
@@ -61,7 +76,7 @@ class PostType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'FlowFusion\BlogBundle\Entity\Post'
+            'data_class' => Post::class
         ));
     }
 

@@ -238,4 +238,43 @@ class Category extends BaseEntity
     {
         return $this->show_in_menu;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $posts;
+
+
+    /**
+     * Add post
+     *
+     * @param \FlowFusion\BlogBundle\Entity\Post $post
+     *
+     * @return Category
+     */
+    public function addPost(\FlowFusion\BlogBundle\Entity\Post $post)
+    {
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param \FlowFusion\BlogBundle\Entity\Post $post
+     */
+    public function removePost(\FlowFusion\BlogBundle\Entity\Post $post)
+    {
+        $this->posts->removeElement($post);
+    }
+
+    /**
+     * Get posts
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
 }

@@ -30,3 +30,20 @@ flow_fusion_blog_admin_category_edit:
 flow_fusion_blog_admin_category_delete:
     path:     /category/delete/{id}
     defaults: { _controller: FlowFusionBlogBundle:Admin/Category:delete }
+
+
+flow_fusion_blog_admin_tag_index:
+    path:     /tag
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Tag:index }
+
+flow_fusion_blog_admin_tag_new:
+    path:     /tag/new
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Tag:new }
+
+flow_fusion_blog_admin_tag_edit:
+    path:     /tag/edit/{id}
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Tag:edit }
+
+flow_fusion_blog_admin_tag_delete:
+    path:     /tag/delete/{id}
+    defaults: { _controller: FlowFusionBlogBundle:Admin/Tag:delete }

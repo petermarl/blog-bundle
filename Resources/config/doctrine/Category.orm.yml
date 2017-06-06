@@ -29,7 +29,7 @@ FlowFusion\BlogBundle\Entity\Category:
             targetEntity: Category
             mappedBy: parent
     manyToMany:
-        users:
+        posts:
             targetEntity: FlowFusion\BlogBundle\Entity\Post
             mappedBy: categories
     lifecycleCallbacks: {  }

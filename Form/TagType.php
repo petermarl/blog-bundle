@@ -2,19 +2,16 @@
 
 namespace FlowFusion\BlogBundle\Form;
 
-use FlowFusion\BlogBundle\Entity\Category;
-use FlowFusion\BlogBundle\Entity\Comment;
+use FlowFusion\BlogBundle\Entity\Tag;
 use FlowFusion\BlogBundle\Service\BlogService;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategoryType extends AbstractType
+class TagType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -37,24 +34,16 @@ class CategoryType extends AbstractType
                     'Published' => BlogService::POST_STATUS_PUBLISHED,
                     'Deleted' => BlogService::POST_STATUS_DELETED,
                 ]
-            ])
-            ->add('parent', EntityType::class, [
-                'class' => Category::class,
-                'choice_label' => 'title',
-            ])
-            ->add('showInMenu', CheckboxType::class, [
-                'required' => false,
-                'label' => 'Show category in menu',
             ]);
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Category::class
+            'data_class' => Tag::class
         ));
     }
 
@@ -63,7 +52,7 @@ class CategoryType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'flowfusion_blogbundle_category';
+        return 'flowfusion_blogbundle_tag';
     }
 
 
