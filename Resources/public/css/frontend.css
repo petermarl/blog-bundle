@@ -2,3 +2,18 @@
     width: 940px;
     margin: auto;
 }
+
+.header ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.header li {
+    float: left;
+    padding-right: 10px;
+}
+
+.wrapper {
+    clear: both;
+}

@@ -10,6 +10,7 @@ namespace FlowFusion\BlogBundle\Service;
 
 use FlowFusion\BlogBundle\Entity\Category;
 use FlowFusion\BlogBundle\Entity\Post;
+use FlowFusion\BlogBundle\Entity\Tag;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class AdminService
@@ -47,7 +48,7 @@ class AdminService
     public function postListQuery()
     {
         $query = $this->getContainer()->get('doctrine.orm.default_entity_manager')
-            ->getRepository('FlowFusionBlogBundle:Post')
+            ->getRepository(Post::class)
             ->createQueryBuilder('p')
             ->leftJoin('p.createdBy', 'u')
             ->orderBy('p.createdAt', 'DESC')
@@ -64,7 +65,7 @@ class AdminService
     {
         /** @var Post $post */
         $post = $this->getContainer()->get('doctrine.orm.default_entity_manager')
-            ->getRepository('FlowFusionBlogBundle:Post')
+            ->getRepository(Post::class)
             ->find($id);
 
         return $post;
@@ -76,7 +77,7 @@ class AdminService
     public function categoryListQuery()
     {
         $query = $this->getContainer()->get('doctrine.orm.default_entity_manager')
-            ->getRepository('FlowFusionBlogBundle:Category')
+            ->getRepository(Category::class)
             ->createQueryBuilder('c')
             ->leftJoin('c.createdBy', 'u')
             ->orderBy('c.title', 'ASC')
@@ -91,12 +92,40 @@ class AdminService
      */
     public function getCategory($id)
     {
-        /** @var Category $post */
-        $post = $this->getContainer()->get('doctrine.orm.default_entity_manager')
-            ->getRepository('FlowFusionBlogBundle:Category')
+        /** @var Category $category */
+        $category = $this->getContainer()->get('doctrine.orm.default_entity_manager')
+            ->getRepository(Category::class)
             ->find($id);
 
-        return $post;
+        return $category;
+    }
+
+    /**
+     * @return \Doctrine\ORM\Query
+     */
+    public function tagListQuery()
+    {
+        $query = $this->getContainer()->get('doctrine.orm.default_entity_manager')
+            ->getRepository(Tag::class)
+            ->createQueryBuilder('t')
+            ->leftJoin('t.createdBy', 'u')
+            ->orderBy('t.title', 'ASC')
+            ->getQuery();
+
+        return $query;
+    }
+    /**
+     * @param $id
+     * @return Tag
+     */
+    public function getTag($id)
+    {
+        /** @var Tag $tag */
+        $tag = $this->getContainer()->get('doctrine.orm.default_entity_manager')
+            ->getRepository(Tag::class)
+            ->find($id);
+
+        return $tag;
     }
 
 }

@@ -1,0 +1,10 @@
+<?php
+
+namespace FlowFusion\BlogBundle\Entity;
+
+/**
+ * Tag
+ */
+class Tag extends BaseEntity
+{
+}

@@ -1,0 +1,15 @@
+date_format:                        d.m.Y - H:i
+
+404:
+    title:                          Seite nicht gefunden
+    message:                        Die von Ihnen angeforderte Seite konnte leider nicht gefunden werden. Möglicherweise wurde sie gelöscht oder Sie sind einem ungültigen Link gefolgt.
+    homelink:                       Zurück zur Startseite
+
+postindex:
+    title:                          Blog Startseite
+    readmore:                       weiterlesen
+    author:
+        headline:                   Alle Beiträge von
+    categorized:                    Kategorisiert in
+    taggedwith:                     Verschlagwortet mit
+    nothingfound:                   Es wurden keine Beiträge gefunden.

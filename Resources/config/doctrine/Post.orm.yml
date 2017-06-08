@@ -17,12 +17,12 @@ FlowFusion\BlogBundle\Entity\Post:
             nullable: true
     oneToMany:
         comments:
-            targetEntity: FlowFusion\BlogBundle\Entity\Post
-            mappedBy: comments
+            targetEntity: FlowFusion\BlogBundle\Entity\Comment
+            mappedBy: post
     manyToMany:
         categories:
             targetEntity: FlowFusion\BlogBundle\Entity\Category
-            inversedBy: categories
+            inversedBy: posts
             joinTable:
                 name: category2post
                 joinColumns:
@@ -30,5 +30,16 @@ FlowFusion\BlogBundle\Entity\Post:
                         referencedColumnName: id
                 inverseJoinColumns:
                     fk_category_id:
+                        referencedColumnName: id
+        tags:
+            targetEntity: FlowFusion\BlogBundle\Entity\Tag
+            inversedBy: posts
+            joinTable:
+                name: tag2post
+                joinColumns:
+                    fk_post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    fk_tag_id:
                         referencedColumnName: id
     lifecycleCallbacks: {  }

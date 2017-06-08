@@ -210,4 +210,43 @@ class Post extends BaseEntity
     {
         return $this->categories;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $tags;
+
+
+    /**
+     * Add tag
+     *
+     * @param \FlowFusion\BlogBundle\Entity\Tag $tag
+     *
+     * @return Post
+     */
+    public function addTag(\FlowFusion\BlogBundle\Entity\Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \FlowFusion\BlogBundle\Entity\Tag $tag
+     */
+    public function removeTag(\FlowFusion\BlogBundle\Entity\Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
 }

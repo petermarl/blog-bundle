@@ -27,5 +27,7 @@ class FlowFusionBlogExtension extends Extension
         $loader->load('services.yml');
 
         $container->setParameter('flow_fusion_blog.loop.page_limit', isset($config['loop']['page_limit']) ? $config['loop']['page_limit'] : 20);
+        $container->setParameter('flow_fusion_blog.loop.excerpt_length', isset($config['loop']['excerpt_length']) ? $config['loop']['excerpt_length'] : 40);
+        $container->setParameter('flow_fusion_blog.loop.read_more_link', isset($config['loop']['read_more_link']) ? $config['loop']['read_more_link'] : true);
     }
 }

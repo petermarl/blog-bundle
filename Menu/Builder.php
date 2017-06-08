@@ -76,4 +76,18 @@ class Builder implements ContainerAwareInterface
 
         return $menu;
     }
+
+    /**
+     * @param FactoryInterface $factory
+     * @param array $options
+     * @return \Knp\Menu\ItemInterface
+     */
+    public function adminTagsMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root');
+        $menu->addChild('Tags overview', array('route' => 'flow_fusion_blog_admin_tag_index'));
+        $menu->addChild('Create tag', array('route' => 'flow_fusion_blog_admin_tag_new'));
+
+        return $menu;
+    }
 }
