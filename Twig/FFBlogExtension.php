@@ -56,7 +56,7 @@ class FFBlogExtension extends \Twig_Extension
                 'id' => $post->getId(),
             ]);
 
-            $excerpt .= ' <a href="'. $url. '">read more';
+            $excerpt .= ' <a href="'. $url. '">'. $this->container->get('translator')->trans('postindex.readmore'). '</a>';
         }
 
         return $excerpt;
