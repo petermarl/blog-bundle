@@ -21,8 +21,9 @@ class SlugifyService
 
     private $language_mapping = [
         'de' => 'german',
-        'de_DE' => 'germna',
-        'en' => 'english',
+        'de_DE' => 'german',
+        'en' => 'default',
+        'en_EN' => 'default',
     ];
 
     /**
