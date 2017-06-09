@@ -7,6 +7,16 @@ namespace FlowFusion\BlogBundle\Entity;
  */
 class BaseEntity
 {
+
+    public function __toString()
+    {
+        if (method_exists($this, 'getTitle')) {
+            return $this->getTitle();
+        }
+
+        return $this->id;
+    }
+
     /**
      * @var int
      */

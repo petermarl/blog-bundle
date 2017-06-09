@@ -2,7 +2,7 @@
     {% for post in paginatedPosts %}
         {{ include('@FlowFusionBlog/View/entry.html.twig') }}
     {% else %}
-        <div class=""><i>{% trans %}postindex.nothingfound{% endtrans %}</i></div>
+        <div class=""><i>{% trans %}frontend.postindex.nothingfound{% endtrans %}</i></div>
     {% endfor %}
 </div>
 

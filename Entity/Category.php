@@ -7,6 +7,7 @@ namespace FlowFusion\BlogBundle\Entity;
  */
 class Category extends BaseEntity
 {
+
     /**
      * @var string
      */

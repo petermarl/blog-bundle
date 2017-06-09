@@ -1,10 +1,8 @@
-<article class="post post-{{ post.id }}">
+<article class="blog-post post-{{ post.id }}">
     {% set d = post.createdAt %}
-    <h2><a href="{{ path('flow_fusion_blog_post_show', {'y': d|date('Y'), 'm': d|date('m'), 'd': d|date('d'), 'slug': post.title|slugify, 'id': post.id}) }}">{{ post.title }}</a></h2>
-    <div class="meta">
-        <small>
-            {{ include('@FlowFusionBlog/View/post_meta.html.twig') }}
-        </small>
+    <h2 class="blog-post-title"><a href="{{ path('flow_fusion_blog_post_show', {'y': d|date('Y'), 'm': d|date('m'), 'd': d|date('d'), 'slug': post.title|slugify, 'id': post.id}) }}">{{ post.title }}</a></h2>
+    <div class="blog-post-meta">
+        {{ include('@FlowFusionBlog/View/post_meta.html.twig') }}
     </div>
     <div class="excerpt">{{ post.content|striptags|excerpt(post)|raw }}</div>
 </article>

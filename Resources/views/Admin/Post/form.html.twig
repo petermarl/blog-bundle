@@ -2,7 +2,7 @@
 
 {{ form_rest(form) }}
 
-<button type="submit">Save</button>
-<a href="{{ path('flow_fusion_blog_admin_post_index') }}">Cancel</a>
+<button type="submit" class="btn btn-success btn-sm">{{ 'backend.buttons.save'|trans }}</button>
+<a href="{{ path('flow_fusion_blog_admin_post_index') }}" class="btn btn-link btn-sm">{{ 'backend.buttons.cancel'|trans }}</a>
 
 {{ form_end(form) }}

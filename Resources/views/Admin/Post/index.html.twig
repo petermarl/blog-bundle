@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block ff_admin_content %}
-    <div class="right">
-        <a href="{{ path('flow_fusion_blog_admin_post_new') }}">New</a>
+    <div class="pull-right">
+        <a href="{{ path('flow_fusion_blog_admin_post_new') }}" class="btn btn-success">{{ 'backend.buttons.new'|trans }}</a>
     </div>
-    <h1>Post overview <small><code>{{ paginatedPosts.getTotalItemCount }}</code></small></h1>
+    <h1>{{ 'backend.post.index.headline'|trans }} <small><code>{{ paginatedPosts.getTotalItemCount }}</code></small></h1>
     <hr />
-    <table>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>{{ knp_pagination_sortable(paginatedPosts, '#', 'p.id') }}</th>
@@ -31,9 +31,9 @@
                     <td>{{ post.createdBy.username }}</td>
                     <td>
                         {% set d = post.createdAt %}
-                        <a href="{{ path('flow_fusion_blog_post_show', {'y': d|date('Y'), 'm': d|date('m'), 'd': d|date('d'), 'slug': post.title|slugify, 'id': post.id}) }}" target="_blank">show</a>
-                        <a href="{{ path('flow_fusion_blog_admin_post_edit', {'id': post.id}) }}">edit</a>
-                        <a href="{{ path('flow_fusion_blog_admin_post_delete', {'id': post.id}) }}">trash</a>
+                        <a href="{{ path('flow_fusion_blog_post_show', {'y': d|date('Y'), 'm': d|date('m'), 'd': d|date('d'), 'slug': post.title|slugify, 'id': post.id}) }}" target="_blank"  class="btn btn-default btn-sm">{{ 'backend.buttons.show'|trans }}</a>
+                        <a href="{{ path('flow_fusion_blog_admin_post_edit', {'id': post.id}) }}" class="btn btn-primary btn-sm">{{ 'backend.buttons.edit'|trans }}</a>
+                        <a href="{{ path('flow_fusion_blog_admin_post_delete', {'id': post.id}) }}" class="btn btn-danger btn-sm">{{ 'backend.buttons.trash'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}

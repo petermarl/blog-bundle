@@ -21,18 +21,19 @@ class TagType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'required' => true,
+                'label' => 'backend.form.name',
             ])
             ->add('description', TextareaType::class, [
                 'required' => true,
-                'label' => 'Content'
+                'label' => 'backend.form.description',
             ])
             ->add('status', ChoiceType::class, [
                 'required' => true,
-                'label' => 'Status',
+                'label' => 'backend.form.status',
                 'choices' => [
-                    'Draft' => BlogService::POST_STATUS_DRAFT,
-                    'Published' => BlogService::POST_STATUS_PUBLISHED,
-                    'Deleted' => BlogService::POST_STATUS_DELETED,
+                    'backend.form.status.draft' => BlogService::POST_STATUS_DRAFT,
+                    'backend.form.status.published' => BlogService::POST_STATUS_PUBLISHED,
+                    'backend.form.status.deleted' => BlogService::POST_STATUS_DELETED,
                 ]
             ]);
     }

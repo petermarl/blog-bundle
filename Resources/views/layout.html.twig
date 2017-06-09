@@ -1,33 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
 <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{{ asset('bundles/flowfusionblog/css/frontend.css') }}" />
+    <meta charset="UTF-8"/>
+    <link href="http://cdn.webworks-nuernberg.de/bootstrap/css/3.3.7" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('bundles/flowfusionblog/css/frontend.css') }}"/>
     <title>{% block page_title %}{% endblock %}</title>
 </head>
 <body>
 
-{% if app.request.hasPreviousSession %}
-    {% for type, messages in app.session.flashbag.all() %}
-        {% for message in messages %}
-            <div class="flash-{{ type }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-{% endif %}
-
-<div class="container">
-    <div class="header">
-        <div class="menu">
-            {{ knp_menu_render('FlowFusionBlogBundle:Builder:categoriesMenu') }}
-        </div>
-    </div>
-    <div class="wrapper">
-        {% block ff_blog_content %}
-        {% endblock ff_blog_content %}
+<div class="blog-masthead">
+    <div class="container">
+        {{ knp_menu_render('FlowFusionBlogBundle:Builder:categoriesMenu') }}
     </div>
 </div>
+
+<div class="container">
+    <div class="blog-header">
+        {% block ff_blog_header %}
+            <h1 class="blog-title">The FlowFusion BlogBundle</h1>
+            <p class="lead blog-description">Create a child bundle to <a href="http://symfony.com/doc/current/bundles/override.html" target="_blank">override</a> this title block.</p>
+        {% endblock ff_blog_header %}
+    </div>
+
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-sm-8 blog-main">
+            {% block ff_blog_content %}
+            {% endblock ff_blog_content %}
+        </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            {% block ff_blog_sidebar %}
+            {% endblock ff_blog_sidebar %}
+        </div>
+    </div>
+</div>
+
+<footer class="blog-footer">
+    <p>Created on top of the <a href="https://github.com/flowfusion" target="_blank">FlowFusion</a> project.</p>
+    <p><a href="#">&uparrow;</a></p>
+</footer>
+
+{% block javascript %}
+    <script type="text/javascript" src="http://cdn.webworks-nuernberg.de/jquery/js/1.12.4"></script>
+    <script type="text/javascript" src="http://cdn.webworks-nuernberg.de/bootstrap/js/3.3.7"></script>
+{% endblock %}
 
 </body>
 </html>

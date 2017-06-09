@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block ff_admin_content %}
-    <h1>Edit category <small><code>{{ category.title }}</code></small></h1>
+    <h1>{{ 'backend.category.edit.headline'|trans }} <small><code>{{ category.title }}</code></small></h1>
     <hr />
     {{ include('@FlowFusionBlog/Admin/Category/form.html.twig') }}
 {% endblock %}

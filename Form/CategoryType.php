@@ -24,27 +24,29 @@ class CategoryType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'required' => true,
+                'label' => 'backend.form.title',
             ])
             ->add('description', TextareaType::class, [
                 'required' => true,
-                'label' => 'Content'
+                'label' => 'backend.form.description',
             ])
             ->add('status', ChoiceType::class, [
                 'required' => true,
-                'label' => 'Status',
+                'label' => 'backend.form.status',
                 'choices' => [
-                    'Draft' => BlogService::POST_STATUS_DRAFT,
-                    'Published' => BlogService::POST_STATUS_PUBLISHED,
-                    'Deleted' => BlogService::POST_STATUS_DELETED,
+                    'backend.form.status.draft' => BlogService::POST_STATUS_DRAFT,
+                    'backend.form.status.published' => BlogService::POST_STATUS_PUBLISHED,
+                    'backend.form.status.deleted' => BlogService::POST_STATUS_DELETED,
                 ]
             ])
             ->add('parent', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'title',
+                'label' => 'backend.form.title',
             ])
             ->add('showInMenu', CheckboxType::class, [
                 'required' => false,
-                'label' => 'Show category in menu',
+                'label' => 'backend.form.show_in_menu',
             ]);
     }
     
