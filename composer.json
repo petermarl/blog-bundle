@@ -2,7 +2,7 @@
   "name": "flowfusion/blog-bundle",
   "description": "Yet another blog bundle for symfony.",
   "type": "symfony-bundle",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "authors": [
     {
       "name": "Anton Dachauer",
