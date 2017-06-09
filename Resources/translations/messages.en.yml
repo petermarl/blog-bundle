@@ -1,0 +1,15 @@
+date_format:                        Y-m-d - H:i
+
+404:
+    title:                          Page not found
+    message:                        The requested page couldn't be found.
+    homelink:                       Back to home
+
+postindex:
+    title:                          Blog home
+    readmore:                       read more
+    author:
+        headline:                   All posts by
+    categorized:                    Categorized in
+    taggedwith:                     Tagged with
+    nothingfound:                   There are no posts to show.
