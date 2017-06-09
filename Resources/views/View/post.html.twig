@@ -3,12 +3,10 @@
 {% block page_title %}{{ post.title }}{% endblock %}
 
 {% block ff_blog_content %}
-    <div class="post post-{{ post.id }}">
-        <h1>{{ post.title }}</h1>
-        <div class="meta">
-            <small>
-                {{ include('@FlowFusionBlog/View/post_meta.html.twig') }}
-            </small>
+    <article class="blog-post post-{{ post.id }}">
+        <h2 class="blog-post-title">{{ post.title }}</h2>
+        <div class="blog-post-meta">
+            {{ include('@FlowFusionBlog/View/post_meta.html.twig') }}
         </div>
         <div class="post-content">
             {{ post.content|raw }}

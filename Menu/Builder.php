@@ -28,8 +28,15 @@ class Builder implements ContainerAwareInterface
      */
     public function categoriesMenu(FactoryInterface $factory, array $options)
     {
-        $menu = $factory->createItem('root');
-        $menu->addChild('Home', array('route' => 'flow_fusion_blog_index'));
+        $menu = $factory->createItem('root', [
+            'currentAsLink' => false,
+            'childrenAttributes' => [
+                'class' => 'blog-nav-item',
+            ],
+        ]);
+        $menu->addChild('Home', [
+            'route' => 'flow_fusion_blog_index',
+        ]);
 
         $categories = $this->container->get('flowfusion.blog')->getMenuCategories();
 

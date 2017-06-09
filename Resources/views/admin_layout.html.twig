@@ -1,13 +1,15 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{{ asset('bundles/flowfusionblog/css/admin.css') }}" />
+    <link href="http://cdn.webworks-nuernberg.de/bootstrap/css/3.3.7" rel="stylesheet" />
     <title>Admin - Blog</title>
 </head>
 <body>
 
-<div class="ff-blog-admin">
+<div class="container">
     <div class="header">
         <div class="user">
             {% if app.user %}
@@ -38,5 +40,11 @@
         </div>
     </div>
 </div>
+
+{% block javascript %}
+    <script type="text/javascript" src="http://cdn.webworks-nuernberg.de/jquery/js/1.12.4"></script>
+    <script type="text/javascript" src="http://cdn.webworks-nuernberg.de/bootstrap/js/3.3.7"></script>
+{% endblock %}
+
 </body>
 </html>
