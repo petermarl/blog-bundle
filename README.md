@@ -1,8 +1,6 @@
 # FlowFusionBlogBundle
 
-The FlowFusion BlogBundle is a part of the FlowFusion Symfony Bundle Collection by webworks nürnberg.
-
-Feel free to contribute on https://git.webworks-nuernberg.de/flowfusion/blog-bundle
+The FlowFusion BlogBundle is a part of the FlowFusion Symfony Bundle collection by webworks nürnberg.
 
 ## Getting started with FlowFusionBlogBundle
 
