@@ -6,9 +6,9 @@
 
 {% block ff_admin_content %}
     <div class="pull-right">
-        <a href="{{ path('flow_fusion_blog_admin_tag_new') }}" class="btn btn-success">New</a>
+        <a href="{{ path('flow_fusion_blog_admin_tag_new') }}" class="btn btn-success">{{ 'backend.buttons.new'|trans }}</a>
     </div>
-    <h1>Tag overview <small><code>{{ tags.getTotalItemCount }}</code></small></h1>
+    <h1>{{ 'backend.tag.index.headline'|trans }} <small><code>{{ tags.getTotalItemCount }}</code></small></h1>
     <hr />
     <table class="table table-bordered">
         <thead>
@@ -30,8 +30,8 @@
                     <td>{{ tag.createdAt|date('d.m.Y - H:i') }}</td>
                     <td>{{ tag.createdBy.username }}</td>
                     <td>
-                        <a href="{{ path('flow_fusion_blog_admin_tag_edit', {'id': tag.id}) }}" class="btn btn-primary btn-sm">edit</a>
-                        <a href="{{ path('flow_fusion_blog_admin_tag_delete', {'id': tag.id}) }}" class="btn btn-danger btn-sm">trash</a>
+                        <a href="{{ path('flow_fusion_blog_admin_tag_edit', {'id': tag.id}) }}" class="btn btn-primary btn-sm">{{ 'backend.buttons.edit'|trans }}</a>
+                        <a href="{{ path('flow_fusion_blog_admin_tag_delete', {'id': tag.id}) }}" class="btn btn-danger btn-sm">{{ 'backend.buttons.trash'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}

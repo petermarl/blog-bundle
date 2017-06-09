@@ -1,15 +1,68 @@
-date_format:                        d.m.Y - H:i
+date_format:                        d.m.Y
 
 404:
     title:                          Seite nicht gefunden
     message:                        Die von Ihnen angeforderte Seite konnte leider nicht gefunden werden. Möglicherweise wurde sie gelöscht oder Sie sind einem ungültigen Link gefolgt.
     homelink:                       Zurück zur Startseite
 
-postindex:
-    title:                          Blog Startseite
-    readmore:                       weiterlesen
-    author:
-        headline:                   Alle Beiträge von
-    categorized:                    Kategorisiert in
-    taggedwith:                     Verschlagwortet mit
-    nothingfound:                   Es wurden keine Beiträge gefunden.
+frontend:
+    postindex:
+        title:                          Blog Startseite
+        readmore:                       weiterlesen
+        author:
+            headline:                   Alle Beiträge von
+        nothingfound:                   Es wurden keine Beiträge gefunden.
+    post:
+        published_by:                   Veröffentlicht von
+        categorized:                    Kategorisiert in
+        taggedwith:                     Verschlagwortet mit
+
+backend:
+    buttons:
+        save:                           Speichern
+        cancel:                         Abbrechen
+        new:                            Neu
+        show:                           Anzeigen
+        edit:                           Bearbeiten
+        trash:                          Löschen
+    form:
+        title:                          Titel
+        content:                        Inhalt
+        status:                         Status
+        comments_enabled:               Kommentarfunktion aktivieren
+        categories:                     Kategorien
+        tags:                           Schlagwörter
+        description:                    Beschreibung
+        show_in_menu:                   Im Menü anzeigen
+        name:                           Name
+        status:
+            draft:                      Entwurf
+            published:                  Veröffentlicht
+            deleted:                    Gelöscht
+    category:
+        menu:
+            name:                       Kategorien
+        index:
+            headline:                   Alle Kategorien
+        new:
+            headline:                   Kategorie hinzufügen
+        edit:
+            headline:                   Kategorie bearbeiten
+    post:
+        menu:
+            name:                       Beiträge
+        index:
+            headline:                   Alle Beiträge
+        new:
+            headline:                   Beitrag erstellen
+        edit:
+            headline:                   Beitrag bearbeiten
+    tag:
+        menu:
+            name:                       Schlagwörter
+        index:
+            headline:                   Alle Schlagwörter
+        new:
+            headline:                   Beitrag hinzufügen
+        edit:
+            headline:                   Beitrag bearbeiten

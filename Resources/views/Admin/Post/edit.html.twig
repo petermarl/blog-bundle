@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block ff_admin_content %}
-    <h1>Edit post <small><code>{{ post.title }}</code></small></h1>
+    <h1>{{ 'backend.post.edit.headline'|trans }} <small><code>{{ post.title }}</code></small></h1>
     <hr />
     {{ include('@FlowFusionBlog/Admin/Post/form.html.twig') }}
 {% endblock %}

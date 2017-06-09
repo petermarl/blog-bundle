@@ -16,8 +16,10 @@
 
 <div class="container">
     <div class="blog-header">
-        <h1 class="blog-title">The FlowFusion BlogBundle</h1>
-        <p class="lead blog-description">Create a child bundle to <a href="http://symfony.com/doc/current/bundles/override.html" target="_blank">override</a> this title block.</p>
+        {% block ff_blog_header %}
+            <h1 class="blog-title">The FlowFusion BlogBundle</h1>
+            <p class="lead blog-description">Create a child bundle to <a href="http://symfony.com/doc/current/bundles/override.html" target="_blank">override</a> this title block.</p>
+        {% endblock ff_blog_header %}
     </div>
 
     {% if app.request.hasPreviousSession %}

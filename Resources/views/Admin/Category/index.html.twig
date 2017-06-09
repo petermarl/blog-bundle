@@ -6,9 +6,9 @@
 
 {% block ff_admin_content %}
     <div class="pull-right">
-        <a href="{{ path('flow_fusion_blog_admin_category_new') }}" class="btn btn-success">New</a>
+        <a href="{{ path('flow_fusion_blog_admin_category_new') }}" class="btn btn-success">{{ 'backend.buttons.new'|trans }}</a>
     </div>
-    <h1>Category overview <small><code>{{ paginatedPosts.getTotalItemCount }}</code></small></h1>
+    <h1>{{ 'backend.category.index.headline'|trans }} <small><code>{{ paginatedPosts.getTotalItemCount }}</code></small></h1>
     <hr />
     <table class="table table-bordered">
         <thead>
@@ -30,9 +30,9 @@
                     <td>{{ category.createdAt|date('d.m.Y - H:i') }}</td>
                     <td>{{ category.createdBy.username }}</td>
                     <td>
-                        <a href="{{ path('flow_fusion_blog_category_index', {'slug': category.title|slugify, 'id': category.id}) }}" target="_blank" class="btn btn-default btn-sm">show</a>
-                        <a href="{{ path('flow_fusion_blog_admin_category_edit', {'id': category.id}) }}" class="btn btn-primary btn-sm">edit</a>
-                        <a href="{{ path('flow_fusion_blog_admin_category_delete', {'id': category.id}) }}" class="btn btn-danger btn-sm">trash</a>
+                        <a href="{{ path('flow_fusion_blog_category_index', {'slug': category.title|slugify, 'id': category.id}) }}" target="_blank" class="btn btn-default btn-sm">{{ 'backend.buttons.show'|trans }}</a>
+                        <a href="{{ path('flow_fusion_blog_admin_category_edit', {'id': category.id}) }}" class="btn btn-primary btn-sm">{{ 'backend.buttons.edit'|trans }}</a>
+                        <a href="{{ path('flow_fusion_blog_admin_category_delete', {'id': category.id}) }}" class="btn btn-danger btn-sm">{{ 'backend.buttons.trash'|trans }}</a>
                     </td>
                 </tr>
             {% endfor %}

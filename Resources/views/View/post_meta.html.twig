@@ -1,17 +1,20 @@
-{{ post.createdAt|date('date_format'|trans) }} &middot;
-{% if post.createdBy %}
-    <a href="{{ path('flow_fusion_blog_author_index', {'username': post.createdBy.username}) }}">{{ post.createdBy.username }}</a>
-{% endif %}
-{% if post.categories|length > 0 %}
-    &middot; {% trans %}postindex.categorized{% endtrans %}
-    {% for category in post.categories %}
-        <a href="{{ path('flow_fusion_blog_category_index', {'slug': category.title|slugify, 'id': category.id}) }}">{{ category.title }}</a>{% if loop.index < post.categories|length %},{% endif %}
-    {% endfor %}
-{% endif %}
+<small>
+    {{ post.createdAt|date('date_format'|trans) }} &middot;
+    {% if post.createdBy %}
+        {% trans %}frontend.post.published_by{% endtrans %}
+        <a href="{{ path('flow_fusion_blog_author_index', {'username': post.createdBy.username}) }}">{{ post.createdBy.username }}</a>
+    {% endif %}
+    {% if post.categories|length > 0 %}
+        &middot; {% trans %}frontend.post.categorized{% endtrans %}
+        {% for category in post.categories %}
+            <a href="{{ path('flow_fusion_blog_category_index', {'slug': category.title|slugify, 'id': category.id}) }}">{{ category.title }}</a>{% if loop.index < post.categories|length %},{% endif %}
+        {% endfor %}
+    {% endif %}
 
-{% if post.tags|length > 0 %}
-    &middot; {% trans %}postindex.taggedwith{% endtrans %}
-    {% for tag in post.tags %}
-        <a href="{{ path('flow_fusion_blog_tag_index', {'slug': tag.title|slugify, 'id': tag.id}) }}">{{ tag.title }}</a>{% if loop.index < post.tags|length %},{% endif %}
-    {% endfor %}
-{% endif %}
+    {% if post.tags|length > 0 %}
+        &middot; {% trans %}frontend.post.taggedwith{% endtrans %}
+        {% for tag in post.tags %}
+            <a href="{{ path('flow_fusion_blog_tag_index', {'slug': tag.title|slugify, 'id': tag.id}) }}">{{ tag.title }}</a>{% if loop.index < post.tags|length %},{% endif %}
+        {% endfor %}
+    {% endif %}
+</small>
