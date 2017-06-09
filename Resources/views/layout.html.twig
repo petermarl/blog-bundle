@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8"/>
     <link href="http://cdn.webworks-nuernberg.de/bootstrap/css/3.3.7" rel="stylesheet"/>
@@ -35,11 +35,15 @@
             {% block ff_blog_content %}
             {% endblock ff_blog_content %}
         </div>
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+            {% block ff_blog_sidebar %}
+            {% endblock ff_blog_sidebar %}
+        </div>
     </div>
 </div>
 
 <footer class="blog-footer">
-    <p>This blog extends the <a href="https://github.com/flowfusion" target="_blank">FlowFusion BlogBundle</a>.</p>
+    <p>Created on top of the <a href="https://github.com/flowfusion" target="_blank">FlowFusion</a> project.</p>
     <p><a href="#">&uparrow;</a></p>
 </footer>
 

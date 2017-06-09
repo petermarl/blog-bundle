@@ -1,32 +1,48 @@
-{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% if form is defined %}
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% endif %}
 
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
 <head>
     <meta charset="UTF-8" />
     <link href="http://cdn.webworks-nuernberg.de/bootstrap/css/3.3.7" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('bundles/flowfusionblog/css/admin.css') }}"/>
     <title>Admin - Blog</title>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <div class="user">
-            {% if app.user %}
-                <strong>{{ app.user.username }}</strong> |
-                <a href="{{ path('fos_user_security_logout') }}">Logout</a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">Login</a>
-            {% endif %}
-            | <a href="{{ path('flow_fusion_blog_index') }}" target="_blank">Blog</a>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path('flow_fusion_blog_admin_post_index') }}">FlowFusion Blog Admin</a>
         </div>
-        <h3>Blog-Administration</h3>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {% if app.user %}
+                    <li><strong>{{ app.user.username }}</strong></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                {% endif %}
+                <li><a href="{{ path('flow_fusion_blog_index') }}" target="_blank">Blog</a></li>
+            </ul>
+        </div>
     </div>
-    <div>
-        <div class="sidebar">
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
             {% block ff_admin_sidebar %}{% endblock %}
         </div>
-        <div class="content">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             {% if app.request.hasPreviousSession %}
                 {% for type, messages in app.session.flashbag.all() %}
                     {% for message in messages %}
