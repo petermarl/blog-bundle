@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 class ViewController extends Controller
 {
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function _404Action(Request $request)
     {
         $response = new Response();
