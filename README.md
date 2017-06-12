@@ -39,7 +39,8 @@ public function registerBundles()
 		new Knp\Bundle\MenuBundle\KnpMenuBundle(),
         // ...
     );
-}```
+}
+```
 
 ## Bundle configuration
 After bundle registration, you will get some error messages, because the configuration isn't ready. So, create it with this example:
@@ -82,7 +83,8 @@ flow_fusion_blog:
     loop:
         page_limit: 20 				   # defines how many posts will be shown in lists
         excerpt_length: 150			   # the length of excerpts in lists
-        read_more_link: true           # do you want to show the "read more" link on excerpts?```
+        read_more_link: true           # do you want to show the "read more" link on excerpts?
+	```
 
 ## Routing
 Now, it's required to include the routing files:
@@ -97,7 +99,8 @@ flow_fusion_blog_admin:
     prefix:   /admin # this can be changed. "/admin/blog" for example...
 
 fos_user:
-    resource: "@FOSUserBundle/Resources/config/routing/all.xml"``
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+```
 
 ## Security
 Because the FlowFusionBlogBundle have his own admin backend, we need to create a security configuration. Please also read the docs of FOSUserBundle for security (step 4) to understand how it works.
